@@ -1,4 +1,4 @@
-class Forum extends component {
+class Forum extends React.Component {
   state = {
     allAnswers: {
       1: { body: "option 1", correct: false },
