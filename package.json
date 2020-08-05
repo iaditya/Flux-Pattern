@@ -1,0 +1,29 @@
+{
+  "name": "react-flux",
+  "version": "1.0.0",
+  "description": "Vanilla Flux in react app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel --presets @babel/preset-react js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iaditya/react-flux.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iaditya/react-flux/issues"
+  },
+  "homepage": "https://github.com/iaditya/react-flux#readme",
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.4"
+  }
+}
