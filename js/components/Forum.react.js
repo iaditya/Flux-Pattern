@@ -5,10 +5,7 @@ class Forum extends React.Component {
 
   onAddAnswer = (answer) => {
     //dispatch now, because an event has occured.
-    ForumDispatcher.dispatch({
-      actionType: "ANSWER_ADDED",
-      answer: answer,
-    });
+    ForumActions.addAnswer(answer);
   };
 
   _onChange = () => {
@@ -16,7 +13,6 @@ class Forum extends React.Component {
   };
 
   componentDidMount() {
-    console.log("componentDidMount");
     ForumStore.addChangeListener(this._onChange);
   }
 
