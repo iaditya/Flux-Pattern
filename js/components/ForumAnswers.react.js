@@ -1,10 +1,10 @@
 class ForumAnswers extends React.Component {
-  _onMarkCorrect(answer) {
+  _onMarkCorrect(id) {
     let that = this;
     //dispatch now, because an event has occured.
     ForumDispatcher.dispatch({
       actionType: "ANSWER_MARKED_CORRECT",
-      answer: answer,
+      id: id,
     });
   }
 

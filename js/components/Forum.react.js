@@ -4,13 +4,25 @@ class Forum extends React.Component {
   };
 
   onAddAnswer = (answer) => {
-    var that = this;
     //dispatch now, because an event has occured.
     ForumDispatcher.dispatch({
       actionType: "ANSWER_ADDED",
       answer: answer,
     });
   };
+
+  _onChange = () => {
+    this.setState({ allAnswers: ForumStore.getAnswers() });
+  };
+
+  componentDidMount() {
+    console.log("componentDidMount");
+    ForumStore.addChangeListener(this._onChange);
+  }
+
+  componentWillUnmount() {
+    ForumStore.removeListner("Change", this._onChange);
+  }
 
   render() {
     return (
