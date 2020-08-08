@@ -7,15 +7,30 @@ class Forum extends React.Component {
     },
   };
 
+  onAddAnswer = (answer) => {
+    var that = this;
+    //dispatch now, because an event has occured.
+    ForumDispatcher.dispatch({
+      action_type: "ANSWER_ADDED",
+      answer: answer,
+    });
+    var answers = that.state.allAnswers;
+    answers[Object.keys(answers).length + 1] = {
+      body: answer,
+      correct: false,
+    };
+    that.setState({ allAnswers: answers });
+  };
+
   render() {
     return (
       <div>
         <ForumHeader />
-        <br/>
+        <br />
         <div className="container">
           <ForumQuestion />
           <ForumAnswers allAnswers={this.state.allAnswers} />
-          <AddAnswer />
+          <AddAnswer onAddAnswer={this.onAddAnswer} />
         </div>
       </div>
     );
