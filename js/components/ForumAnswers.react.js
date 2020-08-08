@@ -3,7 +3,7 @@ class ForumAnswers extends React.Component {
     let that = this;
     //dispatch now, because an event has occured.
     ForumDispatcher.dispatch({
-      action_type: "ANSWER_MARKED_CORRECT",
+      actionType: "ANSWER_MARKED_CORRECT",
       answer: answer,
     });
   }

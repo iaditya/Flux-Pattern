@@ -1,25 +1,15 @@
 class Forum extends React.Component {
   state = {
-    allAnswers: {
-      1: { body: "option 1", correct: false },
-      2: { body: "option 2", correct: false },
-      3: { body: "option 3", correct: false },
-    },
+    allAnswers: ForumStore.getAnswers(),
   };
 
   onAddAnswer = (answer) => {
     var that = this;
     //dispatch now, because an event has occured.
     ForumDispatcher.dispatch({
-      action_type: "ANSWER_ADDED",
+      actionType: "ANSWER_ADDED",
       answer: answer,
     });
-    var answers = that.state.allAnswers;
-    answers[Object.keys(answers).length + 1] = {
-      body: answer,
-      correct: false,
-    };
-    that.setState({ allAnswers: answers });
   };
 
   render() {
