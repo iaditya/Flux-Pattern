@@ -1,9 +1,25 @@
-function ForumAnswers(props) {
-  var allAnswers = props.allAnswers;
+class ForumAnswers extends React.Component {
+  _onMarkCorrect = (id) => {
+    ForumDispatcher.dispatch({
+      type: "ANSWER_MARKED_CORRECT",
+      data: id,
+    });
+  };
 
-  var answers = [];
-  for (var key in allAnswers) {
-    answers.push(<ForumAnswer key={key} id={key} answer={allAnswers[key]} />);
+  render() {
+    var allAnswers = this.props.allAnswers;
+
+    var answers = [];
+    for (var key in allAnswers) {
+      answers.push(
+        <ForumAnswer
+          onMarkCorrect={this._onMarkCorrect}
+          key={key}
+          id={key}
+          answer={allAnswers[key]}
+        />
+      );
+    }
+    return <div>{answers}</div>;
   }
-  return <div>{answers}</div>;
 }

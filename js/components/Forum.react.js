@@ -7,6 +7,13 @@ class Forum extends React.Component {
     },
   };
 
+  onAddAnswer = (answer) => {
+    ForumDispatcher.dispatch({
+      type: "NEW_ANSWER_ADDED",
+      data: answer,
+    });
+  };
+
   render() {
     return (
       <div>
@@ -15,7 +22,7 @@ class Forum extends React.Component {
         <div className="container">
           <ForumQuestion />
           <ForumAnswers allAnswers={this.state.allAnswers} />
-          <AddAnswer />
+          <AddAnswer onAddAnswer={this.onAddAnswer} />
         </div>
       </div>
     );
