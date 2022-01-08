@@ -12,4 +12,8 @@ emitter.on("STARTED", function () {
 
 emitter.emit("STARTED");
 
+ForumDispatcher.register(function (action) {
+  console.log("ForumDispatcher action-> ", action);
+});
+
 ReactDOM.render(<Forum />, document.getElementById("forum"));
