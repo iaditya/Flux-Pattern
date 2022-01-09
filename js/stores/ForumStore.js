@@ -6,6 +6,14 @@ var allAnswers = {
 
 var ForumStore = new EventEmitter(); //OR Store
 
+ForumStore.emitChange = function () {
+  this.emit("CHANGE");
+};
+
+ForumStore.onListenChange = function (listener) {
+  this.on("CHANGE", listener);
+};
+
 ForumStore.allAnswers = function () {
   return allAnswers;
 };
@@ -15,6 +23,7 @@ ForumStore.markAnswerCorrect = function (id) {
     allAnswers[key]["correct"] = false;
   }
   allAnswers[id]["correct"] = true;
+  ForumStore.emitChange();
 };
 
 ForumStore.addNewAnswer = function (answer) {
@@ -22,6 +31,7 @@ ForumStore.addNewAnswer = function (answer) {
     body: answer,
     correct: false,
   };
+  ForumStore.emitChange();
 };
 
 //Dispatcher stores this single function to run everytime when any action dispatches.
