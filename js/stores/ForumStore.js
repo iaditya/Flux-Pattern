@@ -38,10 +38,10 @@ ForumStore.addNewAnswer = function (answer) {
 //here based on action type we descide which emitter function to call [means where to store].
 ForumDispatcher.register(function (action) {
   switch (action.type) {
-    case "ANSWER_MARKED_CORRECT":
+    case ForumConstants.ANSWER_MARKED_CORRECT:
       ForumStore.markAnswerCorrect(action.data);
       break;
-    case "NEW_ANSWER_ADDED":
+    case ForumConstants.NEW_ANSWER_ADDED:
       ForumStore.addNewAnswer(action.data);
       break;
   }

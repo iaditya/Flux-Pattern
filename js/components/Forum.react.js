@@ -12,10 +12,7 @@ class Forum extends React.Component {
   }
 
   onAddAnswer = (answer) => {
-    ForumDispatcher.dispatch({
-      type: "NEW_ANSWER_ADDED",
-      data: answer,
-    });
+    ForumActions.onAddAnswer(answer);
   };
 
   _onChange = () => {
