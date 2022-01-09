@@ -4,7 +4,7 @@ var allAnswers = {
   3: { body: "option 3", correct: false },
 };
 
-var ForumStore = new EventEmitter();
+var ForumStore = new EventEmitter(); //OR Store
 
 ForumStore.allAnswers = function () {
   return allAnswers;
@@ -23,3 +23,16 @@ ForumStore.addNewAnswer = function (answer) {
     correct: false,
   };
 };
+
+//Dispatcher stores this single function to run everytime when any action dispatches.
+//here based on action type we descide which emitter function to call [means where to store].
+ForumDispatcher.register(function (action) {
+  switch (action.type) {
+    case "ANSWER_MARKED_CORRECT":
+      ForumStore.markAnswerCorrect(action.data);
+      break;
+    case "NEW_ANSWER_ADDED":
+      ForumStore.addNewAnswer(action.data);
+      break;
+  }
+});
