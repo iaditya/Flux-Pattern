@@ -1,19 +1,14 @@
 //entry point
 
-var emitter = new EventEmitter();
-
-emitter.on("STARTED", function () {
-  console.log("started app.");
-});
-
-emitter.on("STARTED", function () {
-  console.log("started app again.");
-});
-
-emitter.emit("STARTED");
-
 ForumDispatcher.register(function (action) {
-  console.log("ForumDispatcher action-> ", action);
+  switch (action.type) {
+    case "ANSWER_MARKED_CORRECT":
+      ForumStore.markAnswerCorrect(action.data);
+      break;
+    case "NEW_ANSWER_ADDED":
+      ForumStore.addNewAnswer(action.data);
+      break;
+  }
 });
 
 ReactDOM.render(<Forum />, document.getElementById("forum"));
