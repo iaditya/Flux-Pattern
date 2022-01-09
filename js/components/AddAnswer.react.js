@@ -7,6 +7,7 @@ class AddAnswer extends React.Component {
 
   onAddAnswer = () => {
     this.props.onAddAnswer(this.state.answer);
+    this.onAnswerChange("");
   };
 
   render() {
