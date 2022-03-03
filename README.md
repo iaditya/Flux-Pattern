@@ -1,2 +1,4 @@
-# react-flux
-Vanilla Flux in react app.
+# Flux Architecture
+How Redux works?
+Implemented basic Redux working in plain javascript.
+Uses Event Emitter[[stores]] & Dispatcher.
