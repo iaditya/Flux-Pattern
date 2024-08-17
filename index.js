@@ -1,7 +1,8 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import {createRoot} from "react-dom/client"
 
 const App = () => <p>Hello, This is flux example.</p>;
 
+const root = createRoot(document.getElementById('app'))
 
-ReactDOM.render(<App />, document.getElementById('app'));
+root.render(<App />);
