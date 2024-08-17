@@ -1,8 +1,7 @@
 import React from "react";
-import {createRoot} from "react-dom/client"
+import {createRoot} from "react-dom/client";
+import { Forum } from "./src/components/Forum";
 
-const App = () => <p>Hello, This is flux example.</p>;
+const root = createRoot(document.getElementById('app'));
 
-const root = createRoot(document.getElementById('app'))
-
-root.render(<App />);
+root.render(<Forum />);
