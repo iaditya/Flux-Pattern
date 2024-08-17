@@ -1,6 +1,7 @@
-const App = () => React.createElement("div", null, "Hello this is my react component.")
+import React from "react";
+import ReactDOM from 'react-dom';
 
-ReactDOM.render(
-    React.createElement(App, null),
-    document.getElementById("app")
-)
+const App = () => <p>Hello, This is flux example.</p>;
+
+
+ReactDOM.render(<App />, document.getElementById('app'));
